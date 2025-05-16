@@ -6,12 +6,15 @@ import {
   Param,
   Patch,
   Post,
+  UseInterceptors,
 } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { UserInterceptor } from './interceptors/user.interceptor';
 import { UsersService } from './users.service';
 
 @Controller('users')
+@UseInterceptors(UserInterceptor)
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
@@ -36,7 +39,7 @@ export class UsersController {
   }
 
   @Delete(':id')
-  delete(@Param('id') id: string) {
+  remove(@Param('id') id: string) {
     return this.usersService.remove(id);
   }
 }
