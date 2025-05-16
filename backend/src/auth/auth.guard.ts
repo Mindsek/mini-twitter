@@ -36,10 +36,10 @@ export class AuthGuard implements CanActivate {
       request.user = payload;
       // Find the user for security
       const user = await this.userService.findOne(payload.id);
-      if (!user) throw new UnauthorizedException();
-      request.user = user;
+      if (!user) throw new UnauthorizedException('User not found');
+      request.user = { ...payload, ...user };
     } catch (error) {
-      console.error(error);
+      this.logger.error('Token verification failed', error);
       throw new UnauthorizedException('Invalid token');
     }
     return true;
@@ -51,7 +51,5 @@ export class AuthGuard implements CanActivate {
       throw new UnauthorizedException();
     }
     return token;
-
-    return undefined;
   }
 }

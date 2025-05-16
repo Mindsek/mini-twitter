@@ -1,6 +1,5 @@
 import { Logger, Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
-import { PassportModule } from '@nestjs/passport';
 import { JWT_CONFIG } from 'src/config/jwt-config';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { UsersService } from 'src/users/users.service';
@@ -9,7 +8,6 @@ import { AuthService } from './auth.service';
 
 @Module({
   imports: [
-    PassportModule,
     JwtModule.register({
       global: true,
       secret: JWT_CONFIG.secret,

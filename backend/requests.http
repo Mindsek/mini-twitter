@@ -68,3 +68,10 @@ GET http://localhost:3000/users
 #     "updatedAt": "2025-05-16T11:48:22.203Z"
 #   }
 # ]
+
+###
+
+# Get user by id
+GET http://localhost:3000/users/fcd093b0-6814-4db1-a7e1-be6bf7d43b96
+
+# Response Get user by id

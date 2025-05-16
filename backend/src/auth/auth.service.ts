@@ -10,16 +10,11 @@ import { compare, hash } from 'bcrypt';
 import { JWT_CONFIG } from 'src/config/jwt-config';
 import { User } from 'src/users/entities/user.entity';
 import { UsersService } from 'src/users/users.service';
-import { AuthCreateUserDto } from './dto/create-auth.dto';
-
-export class AuthResponse {
-  access_token: string;
-}
-
-export class AuthBodyDto {
-  email: string;
-  password: string;
-}
+import {
+  AuthBodyDto,
+  AuthCreateUserDto,
+  AuthResponse,
+} from './dto/create-auth.dto';
 
 @Injectable()
 export class AuthService {

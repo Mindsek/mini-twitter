@@ -11,8 +11,12 @@ import {
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Request, Response } from 'express';
 import { AuthGuard } from './auth.guard';
-import { AuthBodyDto, AuthResponse, AuthService } from './auth.service';
-import { AuthCreateUserDto } from './dto/create-auth.dto';
+import { AuthService } from './auth.service';
+import {
+  AuthBodyDto,
+  AuthCreateUserDto,
+  AuthResponse,
+} from './dto/create-auth.dto';
 import { JwtPayload } from './entities/auth.entity';
 
 @ApiTags('auth')
